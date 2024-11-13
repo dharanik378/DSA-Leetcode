@@ -4,23 +4,28 @@ Similarly, if skipB is null, it means the pointer has reached the end of list B.
 */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        ListNode skipA=headA;
-        ListNode skipB=headB;
+        // Initialize two pointers for the two lists
+        ListNode skipA = headA;
+        ListNode skipB = headB;
 
-        while(skipA!=skipB){
-            if(skipA==null){
-                skipA=headA;
-            }else{
-                skipA=skipA.next;
+        // Loop until both pointers meet
+        while (skipA != skipB) {
+            // If skipA reaches the end of List A, reset to head of List B
+            if (skipA == null) {
+                skipA = headB;
+            } else {
+                skipA = skipA.next;
             }
-            if(skipB==null){
-                skipB=headB;
-            }else{
-                skipB=skipB.next;
+
+            // If skipB reaches the end of List B, reset to head of List A
+            if (skipB == null) {
+                skipB = headA;
+            } else {
+                skipB = skipB.next;
             }
-        
         }
-        return skipA;
 
+        // Return the intersection node (or null if no intersection)
+        return skipA;
     }
 }
