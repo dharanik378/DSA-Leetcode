@@ -10,7 +10,6 @@ class TreeNode {
 }
 
 public class BinaryTree {
-    TreeNode root;
 
     // Method to print all leaf nodes
     public void printLeafNodes(TreeNode node) {
